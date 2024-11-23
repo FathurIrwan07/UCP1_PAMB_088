@@ -4,8 +4,14 @@
 
 PENGELOLAAN PUPUK
 
+
 ![image](https://github.com/user-attachments/assets/68d6b824-e2b8-4043-bcf4-e4dbbb9ad936)
 
 ![image](https://github.com/user-attachments/assets/d9ee06b5-2c03-49b6-ad6d-ed099da88c06)
+
+Hapus
+
+![image](https://github.com/user-attachments/assets/729f815a-e109-4b56-ac15-3abd7fd58009)
+
 
 
