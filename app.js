@@ -23,3 +23,21 @@ db.connect((err) => {
     console.log("Connected to MySQL Database");
   }
 });
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/pupuk", (req, res) => {
+  db.query("SELECT * FROM pupuk", (err, results) => {
+    if (err) throw err;
+    res.render("pupuk", { pupuk: results });
+  });
+});
+
+app.get("/bibit", (req, res) => {
+  db.query("SELECT * FROM bibit", (err, results) => {
+    if (err) throw err;
+    res.render("bibit", { bibit: results });
+  });
+});
