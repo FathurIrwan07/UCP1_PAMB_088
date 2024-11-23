@@ -15,3 +15,21 @@ Hapus
 
 
 
+PENGELOLA BIBIT TANAMAN
+
+![image](https://github.com/user-attachments/assets/c584a579-864c-4efa-9023-71637e2bf00d)
+
+
+EDIT BIBIT TANAMAN
+
+![image](https://github.com/user-attachments/assets/4609d213-a694-4b36-a614-479a42bc0042)
+
+HAPUS DAFTAR BIBIT TANAMAN
+
+![image](https://github.com/user-attachments/assets/d35069f3-9bf2-444e-b810-ae421885edf4)
+
+
+
+
+
+
