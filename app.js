@@ -3,12 +3,10 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const app = express();
 
-// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-// Koneksi ke database
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -42,7 +40,6 @@ app.get("/bibit", (req, res) => {
   });
 });
 
-// Tambah pupuk
 app.post("/pupuk/tambah", (req, res) => {
   const { nama_pupuk, jenis_pupuk, harga_pupuk, stok, tanggal_masuk } =
     req.body;
@@ -62,7 +59,6 @@ app.post("/pupuk/tambah", (req, res) => {
   );
 });
 
-// Halaman edit pupuk
 app.get("/pupuk/edit/:id", (req, res) => {
   const id = req.params.id;
   db.query("SELECT * FROM pupuk WHERE id_pupuk = ?", [id], (err, results) => {
@@ -75,7 +71,6 @@ app.get("/pupuk/edit/:id", (req, res) => {
   });
 });
 
-// Proses edit pupuk
 app.post("/pupuk/edit/:id", (req, res) => {
   const id = req.params.id;
   const { nama_pupuk, jenis_pupuk, harga_pupuk, stok, tanggal_masuk } =
@@ -90,7 +85,6 @@ app.post("/pupuk/edit/:id", (req, res) => {
   );
 });
 
-// Hapus pupuk
 app.post("/pupuk/hapus/:id", (req, res) => {
   const id = req.params.id;
   db.query("DELETE FROM pupuk WHERE id_pupuk = ?", [id], (err) => {
@@ -99,7 +93,6 @@ app.post("/pupuk/hapus/:id", (req, res) => {
   });
 });
 
-// CRUD untuk Bibit Tanaman
 app.post("/bibit/tambah", (req, res) => {
   const { nama_bibit, jenis_tanaman, harga_bibit, stok, tanggal_masuk } =
     req.body;
@@ -116,7 +109,6 @@ app.post("/bibit/tambah", (req, res) => {
   );
 });
 
-// Display edit form
 app.get("/bibit/edit/:id", (req, res) => {
   const id = req.params.id;
   db.query("SELECT * FROM bibit WHERE id_bibit = ?", [id], (err, results) => {
@@ -129,7 +121,6 @@ app.get("/bibit/edit/:id", (req, res) => {
   });
 });
 
-// Handle edit submission
 app.post("/bibit/edit/:id", (req, res) => {
   const id = req.params.id;
   const { nama_bibit, jenis_tanaman, harga_bibit, stok, tanggal_masuk } =
@@ -152,7 +143,6 @@ app.post("/bibit/hapus/:id", (req, res) => {
   });
 });
 
-// Jalankan server
 const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server berjalan di http://localhost:${PORT}`);
