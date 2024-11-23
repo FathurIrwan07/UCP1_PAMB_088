@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Pupuk</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Edit Pupuk</h1>
+
+      <form action="/pupuk/edit/<%= pupuk.id_pupuk %>" method="POST">
+        <div class="form-group">
+          <label for="nama_pupuk">Nama Pupuk</label>
+          <input
+            type="text"
+            name="nama_pupuk"
+            class="form-control"
+            id="nama_pupuk"
+            value="<%= pupuk.nama_pupuk %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="jenis_pupuk">Jenis Pupuk</label>
+          <input
+            type="text"
+            name="jenis_pupuk"
+            class="form-control"
+            id="jenis_pupuk"
+            value="<%= pupuk.jenis_pupuk %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="harga_pupuk">Harga</label>
+          <input
+            type="number"
+            name="harga_pupuk"
+            class="form-control"
+            id="harga_pupuk"
+            value="<%= pupuk.harga_pupuk %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="stok">Stok</label>
+          <input
+            type="number"
+            name="stok"
+            class="form-control"
+            id="stok"
+            value="<%= pupuk.stok %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="tanggal_masuk">Tanggal Masuk</label>
+          <input
+            type="date"
+            name="tanggal_masuk"
+            class="form-control"
+            id="tanggal_masuk"
+            value="<%= pupuk.tanggal_masuk %>"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+
+      <a href="/pupuk" class="btn btn-secondary mt-3"
+        >Kembali ke Daftar Pupuk</a
+      >
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

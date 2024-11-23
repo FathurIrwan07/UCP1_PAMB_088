@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Bibit</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Edit Bibit Tanaman</h1>
+
+      <form action="/bibit/edit/<%= bibit.id_bibit %>" method="POST">
+        <div class="form-group">
+          <label for="nama_bibit">Nama Bibit</label>
+          <input
+            type="text"
+            name="nama_bibit"
+            class="form-control"
+            id="nama_bibit"
+            value="<%= bibit.nama_bibit %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="jenis_tanaman">Jenis Tanaman</label>
+          <input
+            type="text"
+            name="jenis_tanaman"
+            class="form-control"
+            id="jenis_tanaman"
+            value="<%= bibit.jenis_tanaman %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="harga_bibit">Harga</label>
+          <input
+            type="number"
+            name="harga_bibit"
+            class="form-control"
+            id="harga_bibit"
+            value="<%= bibit.harga_bibit %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="stok">Stok</label>
+          <input
+            type="number"
+            name="stok"
+            class="form-control"
+            id="stok"
+            value="<%= bibit.stok %>"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="tanggal_masuk">Tanggal Masuk</label>
+          <input
+            type="date"
+            name="tanggal_masuk"
+            class="form-control"
+            id="tanggal_masuk"
+            value="<%= bibit.tanggal_masuk %>"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+
+      <a href="/bibit" class="btn btn-secondary mt-3"
+        >Kembali ke Daftar Bibit</a
+      >
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

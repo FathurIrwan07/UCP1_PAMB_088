@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Pupuk</title>
+    <!-- Link ke CSS Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Daftar Pupuk</h1>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Nama Pupuk</th>
+            <th>Jenis</th>
+            <th>Harga</th>
+            <th>Stok</th>
+            <th>Tanggal Masuk</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% pupuk.forEach((item) => { %>
+          <tr>
+            <td><%= item.id_pupuk %></td>
+            <td><%= item.nama_pupuk %></td>
+            <td><%= item.jenis_pupuk %></td>
+            <td><%= item.harga_pupuk %></td>
+            <td><%= item.stok %></td>
+            <td><%= item.tanggal_masuk %></td>
+            <td>
+              <!-- Tombol Edit -->
+              <a
+                href="/pupuk/edit/<%= item.id_pupuk %>"
+                class="btn btn-warning btn-sm"
+              >
+                Edit
+              </a>
+
+              <!-- Tombol Hapus -->
+              <form
+                action="/pupuk/hapus/<%= item.id_pupuk %>"
+                method="POST"
+                class="d-inline"
+                onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');"
+              >
+                <button type="submit" class="btn btn-danger btn-sm">
+                  Hapus
+                </button>
+              </form>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+
+      <h2>Tambah Pupuk</h2>
+      <form action="/pupuk/tambah" method="POST" class="mt-4">
+        <div class="form-group">
+          <input
+            type="text"
+            name="nama_pupuk"
+            class="form-control"
+            placeholder="Nama Pupuk"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            name="jenis_pupuk"
+            class="form-control"
+            placeholder="Jenis Pupuk"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="harga_pupuk"
+            class="form-control"
+            placeholder="Harga"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="number"
+            name="stok"
+            class="form-control"
+            placeholder="Stok"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="date"
+            name="tanggal_masuk"
+            class="form-control"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Tambah</button>
+      </form>
+
+      <button class="btn btn-secondary mt-4" onclick="window.history.back();">
+        Kembali
+      </button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
