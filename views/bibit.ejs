@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kelola Bibit</title>
 
-    <!-- Link ke CSS Bootstrap -->
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -36,7 +35,6 @@
             <td><%= item.stok %></td>
             <td><%= item.tanggal_masuk %></td>
             <td>
-              <!-- Tombol Edit -->
               <a
                 href="/bibit/edit/<%= item.id_bibit %>"
                 class="btn btn-warning btn-sm"
@@ -44,7 +42,6 @@
                 Edit
               </a>
 
-              <!-- Tombol Hapus -->
               <form
                 action="/bibit/hapus/<%= item.id_bibit %>"
                 method="POST"
