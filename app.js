@@ -151,3 +151,9 @@ app.post("/bibit/hapus/:id", (req, res) => {
     res.redirect("/bibit");
   });
 });
+
+// Jalankan server
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`Server berjalan di http://localhost:${PORT}`);
+});
