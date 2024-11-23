@@ -98,3 +98,56 @@ app.post("/pupuk/hapus/:id", (req, res) => {
     res.redirect("/pupuk");
   });
 });
+
+// CRUD untuk Bibit Tanaman
+app.post("/bibit/tambah", (req, res) => {
+  const { nama_bibit, jenis_tanaman, harga_bibit, stok, tanggal_masuk } =
+    req.body;
+  db.query(
+    "INSERT INTO bibit SET ?",
+    { nama_bibit, jenis_tanaman, harga_bibit, stok, tanggal_masuk },
+    (err) => {
+      if (err) {
+        console.log("Error adding seedling:", err);
+        return res.status(500).send("Failed to add seedling.");
+      }
+      res.redirect("/bibit");
+    }
+  );
+});
+
+// Display edit form
+app.get("/bibit/edit/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM bibit WHERE id_bibit = ?", [id], (err, results) => {
+    if (err) throw err;
+    if (results.length > 0) {
+      res.render("edit_bibit", { bibit: results[0] });
+    } else {
+      res.redirect("/bibit");
+    }
+  });
+});
+
+// Handle edit submission
+app.post("/bibit/edit/:id", (req, res) => {
+  const id = req.params.id;
+  const { nama_bibit, jenis_tanaman, harga_bibit, stok, tanggal_masuk } =
+    req.body;
+  db.query(
+    "UPDATE bibit_tanaman SET nama_bibit = ?, jenis_tanaman = ?, harga_bibit = ?, stok = ?, tanggal_masuk = ? WHERE id_bibit = ?",
+    [nama_bibit, jenis_tanaman, harga_bibit, stok, tanggal_masuk, id],
+    (err) => {
+      if (err) throw err;
+      res.redirect("/bibit");
+    }
+  );
+});
+
+app.post("/bibit/hapus/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM bibit_tanaman WHERE id_bibit = ?", [id], (err) => {
+    if (err) throw err;
+    res.redirect("/bibit");
+  });
+});
